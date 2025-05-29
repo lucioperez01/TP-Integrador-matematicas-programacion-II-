@@ -19,3 +19,6 @@ M1 = dni_a_set(36869470)
 M2 = dni_a_set(32237875)
 
 print(f"L = {L}\nV = {V}\nD = {D}\nM1 = {M1}\nM2 = {M2}")
+
+def test():
+    pass

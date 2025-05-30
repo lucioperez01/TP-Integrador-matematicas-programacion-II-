@@ -20,5 +20,36 @@ M2 = dni_a_set(32237875)
 
 print(f"L = {L}\nV = {V}\nD = {D}\nM1 = {M1}\nM2 = {M2}")
 
-def test():
-    pass
+def expresiones():
+    
+    print("Iniciales disponibles: L, V, D, M1, M2")
+
+    persona1 = input("Elegi a la primer persona (L, V, D, M1, M2): ")
+    persona2 = input("Elegi a la segunda persona (L, V, D, M1, M2): ")
+
+    # Creo un diccionario para los conjutnos
+    conjuntos = {   
+        "L": L,
+        "V": V,
+        "D": D,
+        "M1": M1,
+        "M2": M2
+    }
+
+    if persona1 in conjuntos and persona2 in conjuntos:  # valido inputs
+        c1 = conjuntos[persona1]
+        c2 = conjuntos[persona2]
+
+        print(f"\nConjunto de {persona1}: {c1}")
+        print(f"Conjunto de {persona2}: {c2}")
+
+        #Interseccion
+        interseccion = c1 & c2  # realizo la operacion
+        print(f"\n1) que digitos tienen {persona1} y {persona2} en comun?") # imprimo la pregunta
+        print(f"→ {interseccion if interseccion else 'no tienen digitos e comun'}") # imprimo la respuesta
+
+    else:
+        print("Error: Iniciales invalidas - Las opciones son L, V, D, M1 o M2.")
+
+# Llamo a la funcion
+expresiones()

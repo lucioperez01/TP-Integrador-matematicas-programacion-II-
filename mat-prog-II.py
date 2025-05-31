@@ -1,3 +1,4 @@
+#recibe un dni, ordena y elimina repetidos. Retorna un set con el conjunto ↓
 def dni_a_set(dni):
     dni=str(dni)
     conjunto = []
@@ -12,13 +13,35 @@ def dni_a_set(dni):
                 j -= 1
     return set(conjunto)
 
-L = dni_a_set(43029505)
-V = dni_a_set(33224659)
-D = dni_a_set(43230009)
-M1 = dni_a_set(36869470)
-M2 = dni_a_set(32237875)
+def suma_digitos_dni(dni):
+    dni = str(dni)
+    acumulador = 0
+    for i in range(0, len(dni)):
+        numero_actual = int(dni[i])
+        acumulador += numero_actual 
+    return acumulador
 
-print(f"L = {L}\nV = {V}\nD = {D}\nM1 = {M1}\nM2 = {M2}")
+
+print("• Ingreso de DNIs de los integrantes: ")
+lucio_dni = 43029505
+valentin_dni = 33224659
+danilo_dni = 43230009
+matias_dni = 36869470
+marcos_dni = 32237875
+
+print(f"DNI de Lucio = {lucio_dni}\nDNI de valentin = {valentin_dni}\nDNI de Danilo = {danilo_dni}\nDNI de Matias = {matias_dni}\nDNI de Marcos = {marcos_dni}")
+print(f"\n• Suma de los digitos de cada DNI: \nDNI de Lucio : {suma_digitos_dni(lucio_dni)}\nDNI de Valentin: {suma_digitos_dni(valentin_dni)}\nDNI de Danilo: {suma_digitos_dni(danilo_dni)}")
+print(f"DNI de Matías: {suma_digitos_dni(matias_dni)}\nDNI de Marcos: {suma_digitos_dni(marcos_dni)}")
+
+#conversion a conjuntos con la funcion "dni_a_set" ↓
+print("\n• Conjuntos en base a los DNI:")
+L = dni_a_set(lucio_dni)
+V = dni_a_set(valentin_dni)
+D = dni_a_set(danilo_dni)
+M1 = dni_a_set(matias_dni)
+M2 = dni_a_set(marcos_dni)
+
+print(f"L = {L}\nV = {V}\nD = {D}\nM1 = {M1}\nM2 = {M2}\nM1 = Matias y M2 = Marcos")
 
 def expresiones():
     
@@ -52,4 +75,7 @@ def expresiones():
         print("Error: Iniciales invalidas - Las opciones son L, V, D, M1 o M2.")
 
 # Llamo a la funcion
+print("\n• Operaciones con los conjuntos formados a partir de los DNI ingresados: ")
 expresiones()
+
+

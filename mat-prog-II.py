@@ -21,6 +21,16 @@ def suma_digitos_dni(dni):
         acumulador += numero_actual 
     return acumulador
 
+def frecuencia_digitos_dni(dni):
+    dni = str(dni)
+    frecuencia = {}
+    for i in dni:
+        if i in frecuencia:
+            frecuencia[i] += 1
+        else:
+            frecuencia[i] = 1
+    return frecuencia
+
 
 print("• Ingreso de DNIs de los integrantes: ")
 lucio_dni = 43029505
@@ -32,6 +42,11 @@ marcos_dni = 32237875
 print(f"DNI de Lucio = {lucio_dni}\nDNI de valentin = {valentin_dni}\nDNI de Danilo = {danilo_dni}\nDNI de Matias = {matias_dni}\nDNI de Marcos = {marcos_dni}")
 print(f"\n• Suma de los digitos de cada DNI: \nDNI de Lucio : {suma_digitos_dni(lucio_dni)}\nDNI de Valentin: {suma_digitos_dni(valentin_dni)}\nDNI de Danilo: {suma_digitos_dni(danilo_dni)}")
 print(f"DNI de Matías: {suma_digitos_dni(matias_dni)}\nDNI de Marcos: {suma_digitos_dni(marcos_dni)}")
+
+print(f"\n• Conteo de frecuencia de digitos de cada DNI: \nDNI de Lucio : {frecuencia_digitos_dni(lucio_dni)}\nDNI de Valentin: {frecuencia_digitos_dni(valentin_dni)}\nDNI de Danilo: {frecuencia_digitos_dni(danilo_dni)}")
+print(f"DNI de Matías: {frecuencia_digitos_dni(matias_dni)}\nDNI de Marcos: {frecuencia_digitos_dni(marcos_dni)}")
+
+
 
 #conversion a conjuntos con la funcion "dni_a_set" ↓
 print("\n• Conjuntos en base a los DNI:")

@@ -1,96 +1,116 @@
 #recibe un dni, ordena y elimina repetidos. Retorna un set con el conjunto ↓
 def dni_a_set(dni):
-    dni=str(dni)
+    dni = str(dni)
     conjunto = []
     for i in range(len(dni)):
         numero_actual = int(dni[i])
         if numero_actual not in conjunto:
             conjunto.append(numero_actual)
             j = len(conjunto) - 1
-            #ordenamiento tipo insersion
             while j > 0 and conjunto[j] < conjunto[j - 1]:
                 conjunto[j], conjunto[j - 1] = conjunto[j - 1], conjunto[j]
                 j -= 1
     return set(conjunto)
 
 def suma_digitos_dni(dni):
-    dni = str(dni)
-    acumulador = 0
-    for i in range(0, len(dni)):
-        numero_actual = int(dni[i])
-        acumulador += numero_actual 
-    return acumulador
+    return sum(int(d) for d in str(dni))
 
 def frecuencia_digitos_dni(dni):
     dni = str(dni)
     frecuencia = {}
     for i in dni:
-        if i in frecuencia:
-            frecuencia[i] += 1
-        else:
-            frecuencia[i] = 1
+        frecuencia[i] = frecuencia.get(i, 0) + 1
     return frecuencia
 
-
-print("• Ingreso de DNIs de los integrantes: ")
+# Carga de DNIs
 lucio_dni = 43029505
 valentin_dni = 33224659
 danilo_dni = 43230009
 matias_dni = 36869470
 marcos_dni = 32237875
 
-print(f"DNI de Lucio = {lucio_dni}\nDNI de valentin = {valentin_dni}\nDNI de Danilo = {danilo_dni}\nDNI de Matias = {matias_dni}\nDNI de Marcos = {marcos_dni}")
-print(f"\n• Suma de los digitos de cada DNI: \nDNI de Lucio : {suma_digitos_dni(lucio_dni)}\nDNI de Valentin: {suma_digitos_dni(valentin_dni)}\nDNI de Danilo: {suma_digitos_dni(danilo_dni)}")
-print(f"DNI de Matías: {suma_digitos_dni(matias_dni)}\nDNI de Marcos: {suma_digitos_dni(marcos_dni)}")
+print("• Ingreso de DNIs de los integrantes: ")
+print(f"DNI de Lucio = {lucio_dni}")
+print(f"DNI de Valentin = {valentin_dni}")
+print(f"DNI de Danilo = {danilo_dni}")
+print(f"DNI de Matías = {matias_dni}")
+print(f"DNI de Marcos = {marcos_dni}")
 
-print(f"\n• Conteo de frecuencia de digitos de cada DNI: \nDNI de Lucio : {frecuencia_digitos_dni(lucio_dni)}\nDNI de Valentin: {frecuencia_digitos_dni(valentin_dni)}\nDNI de Danilo: {frecuencia_digitos_dni(danilo_dni)}")
-print(f"DNI de Matías: {frecuencia_digitos_dni(matias_dni)}\nDNI de Marcos: {frecuencia_digitos_dni(marcos_dni)}")
+# Suma
+print(f"\n• Suma de los dígitos:")
+print(f"Lucio: {suma_digitos_dni(lucio_dni)}")
+print(f"Valentin: {suma_digitos_dni(valentin_dni)}")
+print(f"Danilo: {suma_digitos_dni(danilo_dni)}")
+print(f"Matías: {suma_digitos_dni(matias_dni)}")
+print(f"Marcos: {suma_digitos_dni(marcos_dni)}")
 
+# Frecuencia
+print(f"\n• Frecuencia de dígitos:")
+print(f"Lucio: {frecuencia_digitos_dni(lucio_dni)}")
+print(f"Valentin: {frecuencia_digitos_dni(valentin_dni)}")
+print(f"Danilo: {frecuencia_digitos_dni(danilo_dni)}")
+print(f"Matías: {frecuencia_digitos_dni(matias_dni)}")
+print(f"Marcos: {frecuencia_digitos_dni(marcos_dni)}")
 
-
-#conversion a conjuntos con la funcion "dni_a_set" ↓
-print("\n• Conjuntos en base a los DNI:")
+# Conjuntos
 L = dni_a_set(lucio_dni)
 V = dni_a_set(valentin_dni)
 D = dni_a_set(danilo_dni)
 M1 = dni_a_set(matias_dni)
 M2 = dni_a_set(marcos_dni)
 
-print(f"L = {L}\nV = {V}\nD = {D}\nM1 = {M1}\nM2 = {M2}\nM1 = Matias y M2 = Marcos")
+print(f"\n• Conjuntos:")
+print(f"L = {L}")
+print(f"V = {V}")
+print(f"D = {D}")
+print(f"M1 = {M1}")
+print(f"M2 = {M2} (M1 = Matías, M2 = Marcos)")
 
+# Diccionario global de conjuntos
+conjuntos = {
+    "L": L,
+    "V": V,
+    "D": D,
+    "M1": M1,
+    "M2": M2
+}
+
+# Función de operaciones
 def expresiones():
-    
+    print("\n• Operaciones con los conjuntos:")
     print("Iniciales disponibles: L, V, D, M1, M2")
 
-    persona1 = input("Elegi a la primer persona (L, V, D, M1, M2): ")
-    persona2 = input("Elegi a la segunda persona (L, V, D, M1, M2): ")
+    persona1 = input("Elegí la primera persona: ").strip()
+    persona2 = input("Elegí la segunda persona: ").strip()
 
-    # Creo un diccionario para los conjutnos
-    conjuntos = {   
-        "L": L,
-        "V": V,
-        "D": D,
-        "M1": M1,
-        "M2": M2
-    }
-
-    if persona1 in conjuntos and persona2 in conjuntos:  # valido inputs
+    if persona1 in conjuntos and persona2 in conjuntos:
         c1 = conjuntos[persona1]
         c2 = conjuntos[persona2]
 
         print(f"\nConjunto de {persona1}: {c1}")
         print(f"Conjunto de {persona2}: {c2}")
 
-        #Interseccion
-        interseccion = c1 & c2  # realizo la operacion
-        print(f"\n1) que digitos tienen {persona1} y {persona2} en comun?") # imprimo la pregunta
-        print(f"→ {interseccion if interseccion else 'no tienen digitos e comun'}") # imprimo la respuesta
+        # Intersección
+        interseccion = c1 & c2
+        print(f"\n1) ¿Qué dígitos tienen {persona1} y {persona2} en común?")
+        print(f"→ {interseccion if interseccion else 'No tienen dígitos en común'}")
 
+        # Diferencia simétrica
+        simetrica = c1 ^ c2
+        print(f"\n👉 ¿Qué dígitos aparecen en uno u otro, pero no en ambos?")
+        print(f"{simetrica if simetrica else 'Los dos conjuntos son idénticos.'}")
+
+        # Diferencia
+        diferencia1 = c1 - c2
+        diferencia2 = c2 - c1
+        print(f"\n👉 ¿Qué dígitos tiene {persona1} y no {persona2}?")
+        print(f"{diferencia1 if diferencia1 else 'Ninguno'}")
+        print(f"\n👉 ¿Qué dígitos tiene {persona2} y no {persona1}?")
+        print(f"{diferencia2 if diferencia2 else 'Ninguno'}")
     else:
-        print("Error: Iniciales invalidas - Las opciones son L, V, D, M1 o M2.")
+        print("Error: Iniciales inválidas. Usá L, V, D, M1 o M2.")
 
-# Llamo a la funcion
-print("\n• Operaciones con los conjuntos formados a partir de los DNI ingresados: ")
+# Llamada
 expresiones()
 
 

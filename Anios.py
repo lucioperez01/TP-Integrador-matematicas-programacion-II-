@@ -55,9 +55,9 @@ def main():
     edades = {anioActual - anio for anio in anios}
 
     #Producto cartesiano
-    productoCartesiano = list(product(anios, edades))
+    productoCartesiano = set(product(anios, edades))
 
     print("\n• Producto cartesiano (año, edad):")
-    print(f"\n{set(productoCartesiano)}")
+    print(f"\n{productoCartesiano}")
 
 main()

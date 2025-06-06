@@ -45,8 +45,10 @@ def main():
 
     #Chequeo de año bisiesto
     print(f"\n• ¿Algún integrante nació en año bisiesto?")
-    if any(bisiesto(anio) for anio in anios):
-        print(f"\nTenemos un año especial -> {anio}")
+    bisiestos = [anio for anio in anios if bisiesto(anio)]
+
+    if bisiestos:
+        print(f"\nTenemos al menos un año especial: {bisiestos}")
     else:
         print(f"\nNo tenemos años especiales")
 

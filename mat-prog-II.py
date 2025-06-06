@@ -64,7 +64,7 @@ print(f"L = {L}")
 print(f"V = {V}")
 print(f"D = {D}")
 print(f"M1 = {M1}")
-print(f"M2 = {M2} (M1 = Matías, M2 = Marcos)")
+print(f"M2 = {M2}\n(M1 = Matías, M2 = Marcos)")
 
 # Diccionario global de conjuntos
 conjuntos = {
@@ -80,8 +80,8 @@ def expresiones():
     print("\n• Operaciones con los conjuntos:")
     print("Iniciales disponibles: L, V, D, M1, M2")
 
-    persona1 = input("Elegí la primera persona: ").strip()
-    persona2 = input("Elegí la segunda persona: ").strip()
+    persona1 = input("Elegí la primera persona: ").upper()
+    persona2 = input("Elegí la segunda persona: ").upper()
 
     if persona1 in conjuntos and persona2 in conjuntos:
         c1 = conjuntos[persona1]
@@ -90,6 +90,11 @@ def expresiones():
         print(f"\nConjunto de {persona1}: {c1}")
         print(f"Conjunto de {persona2}: {c2}")
 
+        #Unión
+        union = c1 | c2
+        print(f"\n1) ¿Cuál es la unión entre los conjuntos de {persona1} y {persona2}?")
+        print(f"→ {union if union else 'Los conjuntos son idénticos.'}")
+        
         # Intersección
         interseccion = c1 & c2
         print(f"\n1) ¿Qué dígitos tienen {persona1} y {persona2} en común?")

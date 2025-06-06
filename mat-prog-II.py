@@ -22,6 +22,7 @@ def frecuencia_digitos_dni(dni):
         frecuencia[i] = frecuencia.get(i, 0) + 1
     return frecuencia
 
+
 # Carga de DNIs
 lucio_dni = 43029505
 valentin_dni = 33224659
@@ -76,7 +77,7 @@ conjuntos = {
 }
 
 # Función de operaciones
-def expresiones():
+def operaciones():
     print("\n• Operaciones con los conjuntos:")
     print("Iniciales disponibles: L, V, D, M1, M2")
 
@@ -92,30 +93,93 @@ def expresiones():
 
         #Unión
         union = c1 | c2
-        print(f"\n1) ¿Cuál es la unión entre los conjuntos de {persona1} y {persona2}?")
+        print(f"\n¿Cuál es la unión entre los conjuntos de {persona1} y {persona2}?")
         print(f"→ {union if union else 'Los conjuntos son idénticos.'}")
 
         # Intersección
         interseccion = c1 & c2
-        print(f"\n1) ¿Qué dígitos tienen {persona1} y {persona2} en común?")
+        print(f"\n¿Qué dígitos tienen {persona1} y {persona2} en común?")
         print(f"→ {interseccion if interseccion else 'No tienen dígitos en común'}")
 
         # Diferencia simétrica
         simetrica = c1 ^ c2
-        print(f"\n👉 ¿Qué dígitos aparecen en uno u otro, pero no en ambos?")
-        print(f"{simetrica if simetrica else 'Los dos conjuntos son idénticos.'}")
+        print(f"\n¿Qué dígitos aparecen en uno u otro, pero no en ambos?")
+        print(f"→ {simetrica if simetrica else 'Los dos conjuntos son idénticos.'}")
 
         # Diferencia
         diferencia1 = c1 - c2
         diferencia2 = c2 - c1
-        print(f"\n👉 ¿Qué dígitos tiene {persona1} y no {persona2}?")
-        print(f"{diferencia1 if diferencia1 else 'Ninguno'}")
-        print(f"\n👉 ¿Qué dígitos tiene {persona2} y no {persona1}?")
-        print(f"{diferencia2 if diferencia2 else 'Ninguno'}")
+        print(f"\n¿Qué dígitos tiene {persona1} y no {persona2}?")
+        print(f"→ {diferencia1 if diferencia1 else 'Ninguno'}")
+        print(f"\n¿Qué dígitos tiene {persona2} y no {persona1}?")
+        print(f"→ {diferencia2 if diferencia2 else 'Ninguno'}")
     else:
         print("Error: Iniciales inválidas. Usá L, V, D, M1 o M2.")
 
 # Llamada
-expresiones()
+operaciones()
 
+#Función para chequear la expresión lógica de dígitos exclusivos
+def exclusivos(conjuntos):
+    keys = list(conjuntos.keys())
+    todosTienenExclusivo = True
+    
+    for key in keys:
+        conjuntoActual = conjuntos[key]
+        unionOtros = set()
 
+        for otraKey in keys:
+            if otraKey != key:
+                unionOtros |= conjuntos[otraKey]
+        exclusivos = conjuntoActual - unionOtros
+
+        if not exclusivos:
+            return False
+        
+    return True
+
+#Función para chequear la expresión lógica de completamente contenido en otro
+def contenidoEnOtro(conjuntos):
+    keys = list(conjuntos.keys())
+    relacion = set()
+
+    for i in range(len(keys)):
+        for j in range(len(keys)):
+            if i != j:
+                a = keys[i]
+                b = keys[j]
+                if conjuntos[a].issubset(conjuntos[b]):
+                    print(f"→ El conjunto {a} está completamente contenido en el conjunto {b}")
+                    relacion.add((a, b))
+    if not relacion:
+        print(f"→ Ningún conjunto está completamente contenido en otro")
+
+#Función para chequear la expresión lógica de intersección de todos los conjuntos
+def interseccionTotal(conjuntos):
+    if not conjuntos:
+        return set()
+    listaConjuntos = list(conjuntos.values())
+    interseccion = listaConjuntos[0].copy()
+    for conj in listaConjuntos:
+        interseccion &= conj
+    return interseccion
+
+print(f"\n• Expresiones lógicas en lenguaje natural:")
+
+print(f"\nTodos los conjuntos tienen al menos un elemento exclusivo:")
+
+if exclusivos(conjuntos):
+    print(f"→ Todos los conjuntos tienen al menos un elemento exclusivo")
+else:
+    print(f"→ No todos los conjuntos tienen al menos un elemento exclusivo")
+
+print(f"\nUno de los conjuntos está completamente contenido en otro:")
+
+contenidoEnOtro(conjuntos)
+
+print(f"\nSi la intersección de todos los conjuntos contiene un solo dígito, se lo considera un dígito representativo del grupo:")
+
+if len(interseccionTotal(conjuntos)) == 1:
+    print(f"→ Dígito representativo del grupo: {interseccionTotal(conjuntos)}")
+else:
+    print("→ La intersección de todos los conjuntos contiene más de un dígito")

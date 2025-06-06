@@ -31,7 +31,7 @@ marcos_dni = 32237875
 
 print("• Ingreso de DNIs de los integrantes: ")
 print(f"DNI de Lucio = {lucio_dni}")
-print(f"DNI de Valentin = {valentin_dni}")
+print(f"DNI de Valentín = {valentin_dni}")
 print(f"DNI de Danilo = {danilo_dni}")
 print(f"DNI de Matías = {matias_dni}")
 print(f"DNI de Marcos = {marcos_dni}")
@@ -39,7 +39,7 @@ print(f"DNI de Marcos = {marcos_dni}")
 # Suma
 print(f"\n• Suma de los dígitos:")
 print(f"Lucio: {suma_digitos_dni(lucio_dni)}")
-print(f"Valentin: {suma_digitos_dni(valentin_dni)}")
+print(f"Valentín: {suma_digitos_dni(valentin_dni)}")
 print(f"Danilo: {suma_digitos_dni(danilo_dni)}")
 print(f"Matías: {suma_digitos_dni(matias_dni)}")
 print(f"Marcos: {suma_digitos_dni(marcos_dni)}")
@@ -47,7 +47,7 @@ print(f"Marcos: {suma_digitos_dni(marcos_dni)}")
 # Frecuencia
 print(f"\n• Frecuencia de dígitos:")
 print(f"Lucio: {frecuencia_digitos_dni(lucio_dni)}")
-print(f"Valentin: {frecuencia_digitos_dni(valentin_dni)}")
+print(f"Valentín: {frecuencia_digitos_dni(valentin_dni)}")
 print(f"Danilo: {frecuencia_digitos_dni(danilo_dni)}")
 print(f"Matías: {frecuencia_digitos_dni(matias_dni)}")
 print(f"Marcos: {frecuencia_digitos_dni(marcos_dni)}")
@@ -94,7 +94,7 @@ def expresiones():
         union = c1 | c2
         print(f"\n1) ¿Cuál es la unión entre los conjuntos de {persona1} y {persona2}?")
         print(f"→ {union if union else 'Los conjuntos son idénticos.'}")
-        
+
         # Intersección
         interseccion = c1 & c2
         print(f"\n1) ¿Qué dígitos tienen {persona1} y {persona2} en común?")

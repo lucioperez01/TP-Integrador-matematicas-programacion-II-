@@ -60,6 +60,6 @@ def main():
     productoCartesiano = set(product(anios, edades))
 
     print("\n• Producto cartesiano (año, edad):")
-    print(f"\n{productoCartesiano}")
+    print(f"\n{sorted(productoCartesiano)}")
 
 main()

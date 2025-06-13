@@ -7,6 +7,7 @@
 >  Este repositorio contiene el Trabajo Práctico Integrador de "Matemáticas y Programación". 
 Incluye la consigna en PDF y los scripts desarrollados en Python para resolver los ejercicios propuestos.
 
+> Presentación en vídeo: https://youtu.be/kbKr1CFtQwE
 ---
 
 ## 📁 Estructura del proyecto

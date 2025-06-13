@@ -1,4 +1,4 @@
-# <img src="https://utn.edu.ar/images/logo-utn.png" width="200"></h2>
+# <img src="https://bignews.ar/wp-content/uploads/2023/05/utn-nacional.jpg" width="200"></h2>
 #  Trabajo Practico Integrador Matemáticas y Programación 
 
 ![Python](https://img.shields.io/badge/Code-Python-informational?style=flat&logo=python&color=3776AB)
@@ -64,11 +64,11 @@ TP-Integrador-matematicas-programacion-II-/
 
 ## 🤝 Contribuciones
 
-•⁠  ⁠[Valentin](https://github.com/i4nkvrtjs): Modulo de Años, expresiones logicas con implementación y Correcciones
-•⁠  ⁠[Lucio](https://github.com/lucioperez01): Diagramas de venn en pdf, función dni_a_set, función suma de digitos.
-•⁠  [⁠Marcos](https://github.com/sedado22): Funcion expresiones() con ejemplo, Readme
-•⁠  ⁠[Danilo](https://github.com/Danilop23): Operaciones diferencia y diferencia asimétrica
-•⁠  [⁠Matias](https://github.com/matiasplm): Operaciones de conjuntos en pdf, función cuenta digitos
+-  ⁠[Valentin](https://github.com/i4nkvrtjs): Modulo de Años, expresiones logicas con implementación y Correcciones
+-  ⁠[Lucio](https://github.com/lucioperez01): Diagramas de venn en pdf, función dni_a_set, función suma de digitos.
+-  [⁠Marcos](https://github.com/sedado22): Funcion expresiones() con ejemplo, Readme
+-  ⁠[Danilo](https://github.com/Danilop23): Operaciones diferencia y diferencia asimétrica
+-  [⁠Matias](https://github.com/matiasplm): Operaciones de conjuntos en pdf, función cuenta digitos
 
 ## 📄 Licencia
 

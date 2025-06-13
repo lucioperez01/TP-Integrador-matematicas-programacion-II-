@@ -69,7 +69,9 @@ TP-Integrador-matematicas-programacion-II-/
 -  ⁠[Lucio](https://github.com/lucioperez01): Diagramas de venn en pdf, función dni_a_set, función suma de digitos.
 -  [⁠Marcos](https://github.com/sedado22): Funcion expresiones() con ejemplo, Readme
 -  ⁠[Danilo](https://github.com/Danilop23): Operaciones diferencia y diferencia asimétrica
--  [⁠Matias](https://github.com/matiasplm): Operaciones de conjuntos en pdf, función cuenta digitos
+-  [⁠Matias](https://github.com/matiasplm): Operaciones de conjuntos en pdf, función cuenta digitos.
+
+  Presentación en video: https://youtu.be/kbKr1CFtQwE
 
 ## 📄 Licencia
 
